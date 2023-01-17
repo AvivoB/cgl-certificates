@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+input#table-search:focus {
+    outline: 0px !important;
+    --tw-ring-shadow: 0px;
+}

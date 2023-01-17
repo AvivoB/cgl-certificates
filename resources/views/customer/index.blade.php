@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Customers') }}
         </h2>
 
 
@@ -62,7 +62,7 @@
                             <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 outline-0 focus:ring-offset-0" placeholder="Search for a certificate number or a client">
                         </div>
                         <div>
-                            <a href="{{ route('certificates.create') }}" class="text-white bg-indigo-500 hover:bg-indigo-700 font-medium rounded-lg text-sm px-4 py-2.5">Create certificate</a>
+                            <button class="text-white bg-indigo-500 hover:bg-indigo-700 font-medium rounded-lg text-sm px-4 py-2.5">Create certificate</button>
                         </div>
                     </div>
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-y-hidden">

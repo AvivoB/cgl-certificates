@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text('data');
             $table->text('images');
             $table->text('qrcode');
+            $table->unsignedBigInteger('customer_id');
+            $table->foreign('customer_id')->references('id')->on('customers');
             $table->timestamps();
         });
     }
