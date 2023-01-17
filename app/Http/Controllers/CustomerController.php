@@ -23,7 +23,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        //Is use by livewire component
     }
 
     /**
@@ -34,7 +34,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Method used by Livewire component ('add-customer-form')
     }
 
     /**
