@@ -34,7 +34,11 @@ class CertificateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validated = $request->validate([
+            'customer_id' => 'required',
+        ]);
+        dd($request->all());
     }
 
     /**
