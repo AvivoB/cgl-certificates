@@ -17,23 +17,14 @@
                 </div>
                 @endif
 
-                <div>
-                    <h2 class="text-lg text-blue-700">1. Choose or create a client</h2>
-                </div>
-                @livewire('add-customer-form')
-
+                
                 <form action="{{ route('certificates.store') }}" method="post" enctype="multipart/form-data" id="image-upload">
                     @csrf
-
                     
-                    <div id="selected-customer" class="w-full p-4 my-4 rounded-md border-2 border-green-200 bg-green-50 flex flex-col justify-between hidden">
-                        <span class="bg-green-100 text-green-800 text-xs font-medium mb-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Selected customer</span>
-                        <div class="font-bold">Name : <span id="client_name" class="font-medium"></span></div>
-                        <div class="font-bold">Address : <span id="address" class="font-medium"></span></div>
-                        <div class="font-bold">Phone : <span id="phone" class="font-medium"></span></div>
-                        <div class="font-bold">E-mail : <span id="email" class="font-medium"></span></div>
-                        <input type="hidden" name="customer_id" id="customer_id">
+                    <div>
+                        <h2 class="text-lg text-blue-700">1. Choose or create a client</h2>
                     </div>
+                    @livewire('add-customer-form')
 
                     <div>
                         <h2 class="text-lg text-blue-700">2. Enter the certificate information</h2>

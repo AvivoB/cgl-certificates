@@ -44,7 +44,6 @@ class AddCustomerForm extends Component
 
     public function displayFormCreateCustomer()
     {
-        // dd('hey');
         $this->displayCreateCustomer = true;
         $this->userSelected = '';
     }
@@ -59,14 +58,14 @@ class AddCustomerForm extends Component
 
     public function save ()
     {
-        // $validatedData = $this->validate([
-        //     'name' => 'required|min:6',
-        //     'email' => 'required|email',
-        //     'phone' => '',
-        //     'address' => '',
-        //     'city' => '',
-        //     'country' => '',
-        // ]);
+        $validatedData = $this->validate([
+            'name' => 'required|min:6',
+            'email' => 'required|email',
+            'phone' => '',
+            'address' => '',
+            'city' => '',
+            'country' => '',
+        ]);
 
         $user_created = Customer::create([
             'name' => $this->name,
@@ -79,5 +78,6 @@ class AddCustomerForm extends Component
 
 
         $this->userSelected = $user_created;
+        $this->displayCreateCustomer = false;
     }
 }
