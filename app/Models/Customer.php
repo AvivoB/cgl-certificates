@@ -21,4 +21,7 @@ class Customer extends Model
     {
         return $this->hasMany(Certificate::class);
     }
+
+
+    
 }
