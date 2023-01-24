@@ -13,6 +13,8 @@ class CustomersTableList extends Component
      public $customers;
      public $search;
 
+     public $country;
+
     public function render()
     {
         $search = $this->search;
@@ -24,6 +26,11 @@ class CustomersTableList extends Component
                 ->orWhere('city', 'like', '%' . $search . '%')
                 ->orWhere('country', 'like', '%' . $search . '%');
        })->get();
+
+
+       if($this->country != '') {
+            $this->customers = Customer::where('country', 'like', $this->country)->get();
+       }
        
         return view('livewire.customers-table-list');
     }

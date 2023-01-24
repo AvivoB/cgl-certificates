@@ -92,6 +92,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 overflow-y-hidden">
                                 <td class="w-4 p-4">
                                     <div class="flex items-center">

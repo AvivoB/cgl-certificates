@@ -12,12 +12,13 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-jet-nav-link href="{{ route('certificates.index') }}" :active="request()->routeIs('certificates.*')">
+                        {{ __('Certificates') }}
                     </x-jet-nav-link>
                 </div>
+                {{-- @dd(request()->has()) --}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('customers.index')">
+                    <x-jet-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('customers.*')">
                         {{ __('Customers') }}
                     </x-jet-nav-link>
                 </div>

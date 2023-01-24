@@ -35,7 +35,7 @@
             </button>
         </div>
     </div>
-    <div>
+    <div class="py-3">
         @if($displayCreateCustomer)
         <div class="flex flex-wrap">
             @if (session()->has('message'))

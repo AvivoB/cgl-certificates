@@ -30,18 +30,35 @@
                         <h2 class="text-lg text-blue-700">2. Enter the certificate information</h2>
                     </div>
 
-                    <div class="flex flex-row py-6">
-                        <div class="flex flex-col w-full px-2">
-                            <label for="carat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Carat information</label>
-                            <input type="text" id="carat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                    <div class="flex flex-wrap py-6">
+                        <div class="flex flex-col w-1/2 lg:w-1/3 px-2">
+                            <label for="style" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Shape and Cutting Style</label>
+                            <input type="text" id="style" name="style" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
                         </div>
-                        <div class="flex flex-col w-full px-2">
-                            <label for="carat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Carat information</label>
-                            <input type="text" id="carat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                        <div class="flex flex-col w-1/2 lg:w-1/3 px-2">
+                            <label for="measurements" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Measurements</label>
+                            <input type="text" id="measurements" name="measurements" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
                         </div>
-                        <div class="flex flex-col w-full px-2">
-                            <label for="carat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Carat information</label>
-                            <input type="text" id="carat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                        <div class="flex flex-col w-1/2 lg:w-1/3 px-2">
+                            
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap py-6">
+                        <div class="flex flex-col w-1/2 lg:w-1/4 px-2">
+                            <label for="carat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Carat Weight</label>
+                            <input type="text" id="carat" name="carat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                        </div>
+                        <div class="flex flex-col w-1/2 lg:w-1/4 px-2">
+                            <label for="color_grade" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Color Grade</label>
+                            <input type="text" id="color_grade" name="color_grade" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                        </div>
+                        <div class="flex flex-col w-1/2 lg:w-1/4 px-2">
+                            <label for="clarity_grade" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Clarity Grade</label>
+                            <input type="text" id="clarity_grade" name="clarity_grade" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                        </div>
+                        <div class="flex flex-col w-1/2 lg:w-1/4 px-2">
+                            <label for="cut_grade" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cut Grade</label>
+                            <input type="text" id="cut_grade" name="cut_grade" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
                         </div>
                     </div>
 
@@ -155,8 +172,9 @@
             </div>
         </div>
     </div>
+    
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/datepicker.min.js"></script>
     <script src="https://unpkg.com/create-file-list"></script>
     <script>
         function dataFileDnD() {
