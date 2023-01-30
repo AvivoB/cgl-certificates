@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Mail\EmailCertificate;
 use Illuminate\Support\Facades\Mail;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use PDF;
 
 class CertificateController extends Controller
 {
@@ -75,6 +77,37 @@ class CertificateController extends Controller
     {
         $certificate = Certificate::find($id);
         return view('certificate.show');
+    }
+
+    
+    /**
+     * Display Label with data per certficate
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showLabel($id)
+    {
+        $certificate = Certificate::find($id);
+
+        // inch (convert millimeter to inch)
+        $print_size = array(0,0,200,350);
+        $qrcode = QrCode::size(50)->generate(route('certificates.showLabel', $certificate->id));
+        // view()->share('certificate', $certificate);
+        $pdf = PDF::loadView('certificate.pdf.label', compact('certificate', 'qrcode'))->setPaper($print_size, 'landscape');;
+        // download PDF file with download method
+        return $pdf->download(\Str::slug($certificate->id).'.pdf');
+    }
+
+    /**
+     * Display Label with data per certficate
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showCertficate($id)
+    {
+        $certificate = Certificate::find($id);
     }
 
     /**

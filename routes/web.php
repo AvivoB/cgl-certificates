@@ -28,6 +28,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
+
+    // Certificates
+    Route::get('certificates/{id}/label', [CertificateController::class, 'showLabel'])->name('certificates.showLabel');
+    Route::get('certificates/{id}/certificate-card', [CertificateController::class, 'showCertficate'])->name('certificates.showCertficate');
     Route::resource('certificates', CertificateController::class);
+    
+    // Customers
     Route::resource('customers', CustomerController::class);
 });
