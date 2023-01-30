@@ -14,14 +14,17 @@ class EmailCertificate extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $certificate;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(
-        Certificate $certificate
-    ) {}
+    public function __construct(Certificate $certificate) 
+    {
+        $this->certificate = $certificate;
+    }
 
     /**
      * Get the message envelope.
@@ -43,7 +46,7 @@ class EmailCertificate extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.certificates',
         );
     }
 

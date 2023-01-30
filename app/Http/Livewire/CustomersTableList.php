@@ -24,7 +24,8 @@ class CustomersTableList extends Component
                 ->orWhere('phone', 'like', '%' . $search . '%')
                 ->orWhere('address', 'like', '%' . $search . '%')
                 ->orWhere('city', 'like', '%' . $search . '%')
-                ->orWhere('country', 'like', '%' . $search . '%');
+                ->orWhere('country', 'like', '%' . $search . '%')
+                ->orWhere('id', 'like', '%' . $search . '%');
        })->get();
 
 

@@ -6,7 +6,9 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <div class="w-1/2 flex justify-center">
+                            <x-logo-app/>
+                        </div>
                     </a>
                 </div>
 

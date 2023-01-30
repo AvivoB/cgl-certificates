@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
+            $table->string('object_type');
+            $table->text('data');
             $table->boolean('qrcode');
             $table->text('images');
-            $table->text('data');
             $table->unsignedBigInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->timestamps();

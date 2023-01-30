@@ -35,8 +35,8 @@
             </button>
         </div>
     </div>
+    @if($displayCreateCustomer)
     <div class="py-3">
-        @if($displayCreateCustomer)
         <div class="flex flex-wrap">
             @if (session()->has('message'))
                 <div class="alert alert-success">
@@ -68,8 +68,8 @@
                 <button type="button" wire:click="save" class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create customer</button>
             </div>
         </div>
-        @endif
     </div>
+    @endif
     @if($userSelected)
     <div id="selected-customer" class="p-4 my-4 rounded-md border-2 border-green-200 bg-green-50">
         <span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 w-64">Selected customer</span>

@@ -104,7 +104,7 @@
                                     #000{{ $certificate->id }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $certificate->customer->name }}
+                                    <a href="{{ route('customers.show', $certificate->customer->id) }}">{{ $certificate->customer->name }}</a>
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $certificate->created_at }}

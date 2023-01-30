@@ -29,7 +29,18 @@
                     <div>
                         <h2 class="text-lg text-blue-700">2. Enter the certificate information</h2>
                     </div>
-
+                    <div class="flex flex-wrap py-6">
+                        <div class="flex flex-col w-1/2 lg:w-1/3 px-2">
+                            <label for="object_type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type of object to be certified</label>
+                            <select id="object_type" name="object_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected>Choose an object</option>
+                                <option value="Diamond">Diamond</option>
+                                <option value="Watch">Watch</option>
+                                <option value="Wristband">Wristband</option>
+                                <option value="Ring">Ring</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="flex flex-wrap py-6">
                         <div class="flex flex-col w-1/2 lg:w-1/3 px-2">
                             <label for="style" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Shape and Cutting Style</label>
@@ -66,7 +77,7 @@
                     <div>
                         <h2 class="text-lg text-blue-700">3. Add photos to the certificate</h2>
                     </div>
-                    
+                    {{-- Image Upload --}}
                     <div class="flex items-center justify-center w-full py-6">
                         <div x-data="dataFileDnD()" class="relative flex flex-col p-4 text-gray-400 border border-gray-200 rounded-lg w-full">
                             <div x-ref="dnd"
