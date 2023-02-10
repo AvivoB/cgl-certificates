@@ -22,59 +22,16 @@
                     @csrf
                     
                     <div>
-                        <h2 class="text-lg text-blue-700">1. Choose or create a client</h2>
+                        <h2 class="text-lg text-blue-700">1. Choose or create customer</h2>
                     </div>
                     @livewire('add-customer-form')
 
                     <div>
                         <h2 class="text-lg text-blue-700">2. Enter the certificate information</h2>
                     </div>
-                    <div class="flex flex-wrap py-6">
-                        <div class="flex flex-col w-1/2 lg:w-1/3 px-2">
-                            <label for="object_type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type of object to be certified</label>
-                            <select id="object_type" name="object_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option selected>Choose an object</option>
-                                <option value="Diamond">Diamond</option>
-                                <option value="Watch">Watch</option>
-                                <option value="Wristband">Wristband</option>
-                                <option value="Ring">Ring</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap py-6">
-                        <div class="flex flex-col w-1/2 lg:w-1/3 px-2">
-                            <label for="style" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Shape and Cutting Style</label>
-                            <input type="text" id="style" name="style" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                        </div>
-                        <div class="flex flex-col w-1/2 lg:w-1/3 px-2">
-                            <label for="measurements" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Measurements</label>
-                            <input type="text" id="measurements" name="measurements" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                        </div>
-                        <div class="flex flex-col w-1/2 lg:w-1/3 px-2">
-                            
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap py-6">
-                        <div class="flex flex-col w-1/2 lg:w-1/4 px-2">
-                            <label for="carat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Carat Weight</label>
-                            <input type="text" id="carat" name="carat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                        </div>
-                        <div class="flex flex-col w-1/2 lg:w-1/4 px-2">
-                            <label for="color_grade" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Color Grade</label>
-                            <input type="text" id="color_grade" name="color_grade" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                        </div>
-                        <div class="flex flex-col w-1/2 lg:w-1/4 px-2">
-                            <label for="clarity_grade" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Clarity Grade</label>
-                            <input type="text" id="clarity_grade" name="clarity_grade" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                        </div>
-                        <div class="flex flex-col w-1/2 lg:w-1/4 px-2">
-                            <label for="cut_grade" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cut Grade</label>
-                            <input type="text" id="cut_grade" name="cut_grade" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                        </div>
-                    </div>
+                    @livewire('choose-object-to-certified')
 
-
-                    <div>
+                    <div class="pt-6">
                         <h2 class="text-lg text-blue-700">3. Add photos to the certificate</h2>
                     </div>
                     {{-- Image Upload --}}
@@ -157,9 +114,9 @@
                     </div> 
 
                     <div>
-                        <h2 class="text-lg text-blue-700">4. Choose the options</h2>
+                        {{-- <h2 class="text-lg text-blue-700">4. Choose the options</h2> --}}
                         <div class="flex flex-row items-center justify-between">
-                            <div class="flex flex-col py-6">
+                            {{-- <div class="flex flex-col py-6">
                                 <label class="relative lg:flex-row inline-flex items-center mb-4 cursor-pointer">
                                     <input type="checkbox" name="send-by-email" value="send-certificate-by-email" class="sr-only peer">
                                     <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
@@ -170,7 +127,7 @@
                                     <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                     <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Activate the QR code for this certificate?</span>
                                 </label>
-                            </div>
+                            </div> --}}
                             <div>
                                 <button type="submit" class="text-white bg-green-500 hover:bg-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
                                     Create certificat

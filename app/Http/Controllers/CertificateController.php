@@ -48,21 +48,22 @@ class CertificateController extends Controller
 
         // Vérification des données
         $images = ($request->has('images')) ? $this->uploadFiles($request->images) : '';
-        $qrcode = ($request->has('qrcode')) ? true : false ;
-        $send_by_email_certificat = ($request->has('send-by-email')) ? true : false;
+        // $qrcode = ($request->has('qrcode')) ? true : false ;
+        // $send_by_email_certificat = ($request->has('send-by-email')) ? true : false;
 
         // Creation du certificat
         $certificate = Certificate::create([
             'customer_id' => $request->customer_id,
             'images' => json_encode($images),
             'data' => json_encode($request->except(['_token', 'images', 'customer_id', 'send-by-email', 'qrcode'])),
-            'qrcode' => $qrcode,
+            // 'qrcode' => $qrcode,
+            'qrcode' => true,
         ]);
 
         // Envoi du mail au client si envoi par mail demandé
-        if($send_by_email_certificat) {
-            Mail::to($certificate->customer->email)->send(new EmailCertificate($certificate));
-        }
+        // if($send_by_email_certificat) {
+        //     Mail::to($certificate->customer->email)->send(new EmailCertificate($certificate));
+        // }
 
         return redirect()->route('certificates.index');
     }
@@ -91,12 +92,12 @@ class CertificateController extends Controller
         $certificate = Certificate::find($id);
 
         // inch (convert millimeter to inch)
-        $print_size = array(0,0,200,350);
+        $print_size = array(0,0,2000,3500);
         $qrcode = QrCode::size(50)->generate(route('certificates.showLabel', $certificate->id));
         // view()->share('certificate', $certificate);
-        $pdf = PDF::loadView('certificate.pdf.label', compact('certificate', 'qrcode'))->setPaper($print_size, 'landscape');;
+        $pdf = PDF::loadView('certificate.pdf.label', compact('certificate', 'qrcode'))->setPaper($print_size, 'landscape');
         // download PDF file with download method
-        return $pdf->download(\Str::slug($certificate->id).'.pdf');
+        return $pdf->download('CGL-C-000'.$certificate->id.'.pdf');
     }
 
     /**
@@ -108,6 +109,15 @@ class CertificateController extends Controller
     public function showCertficate($id)
     {
         $certificate = Certificate::find($id);
+        $dataCertificate = json_decode($certificate->data);
+        $imageCertificate = json_decode($certificate->images);
+
+        // inch (convert millimeter to inch)
+        $print_size = array(0,0,210,400);
+        // view()->share('certificate', $certificate);
+        $pdf = PDF::loadView('certificate.pdf.certificate', compact('certificate', 'dataCertificate', 'imageCertificate'))->setPaper($print_size, 'landscape');
+        // download PDF file with download method
+        return $pdf->download('CGL-C-000'.$certificate->id.'.pdf');
     }
 
     /**
@@ -141,7 +151,10 @@ class CertificateController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $certificate = Certificate::find($id);
+        $certificate->delete();
+
+        return redirect()->route('certificates.index');
     }
 
     
