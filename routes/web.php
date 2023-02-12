@@ -39,4 +39,6 @@ Route::middleware([
     Route::resource('customers', CustomerController::class);
 });
 
-Route::get('certificate/CGL-C-000{id}', [CertificateController::class, 'show'])->name('certificatepublic.show');
+
+// Route public pour acceder au certificats sans etre connecté et via le QR Code
+Route::get('certificate/CGL-C-000{id}', [CertificateController::class, 'showCertficate'])->name('certificatepublic.show');
