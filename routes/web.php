@@ -38,3 +38,5 @@ Route::middleware([
     // Customers
     Route::resource('customers', CustomerController::class);
 });
+
+Route::get('certificate/CGL-C-000{id}', [CertificateController::class, 'show'])->name('certificatepublic.show');

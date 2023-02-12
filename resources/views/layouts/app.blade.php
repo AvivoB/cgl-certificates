@@ -13,8 +13,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        {{-- Flowbite --}}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/flowbite.min.js"></script>
+        
 
         {{-- Dropzone --}}
         <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
@@ -47,5 +46,8 @@
         @stack('modals')
 
         @livewireScripts
+
+        {{-- Flowbite --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     </body>
 </html>

@@ -92,7 +92,7 @@
                 {{-- <span class="small-text">{{ $dataCertificate->text_certificate }}</span> --}}
             </td>
             <td style="width: 30%; text-align: right;">
-                <img src="data:image/png;base64, {!! base64_encode(QrCode::size(75)->generate(route('certificates.showLabel', $certificate->id))) !!} ">
+                <img src="data:image/png;base64, {!! base64_encode(QrCode::size(75)->generate(route('certificatepublic.show', $certificate->id))) !!} ">
             </td>
         </tr>
         <tr>

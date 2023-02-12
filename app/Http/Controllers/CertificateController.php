@@ -151,6 +151,7 @@ class CertificateController extends Controller
     public function destroy($id)
     {
         $certificate = Certificate::find($id);
+        
         $certificate->delete();
 
         return redirect()->route('certificates.index');
