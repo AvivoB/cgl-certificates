@@ -37,12 +37,12 @@
     </div>
     @if($displayCreateCustomer)
     <div class="py-3">
+        @if ($errors->any())
+            <div class="p-4 my-4 rounded-md border-2 border-red-200 bg-red-50 text-red-500">
+                Please fill all input to create new customer
+            </div>
+        @endif
         <div class="flex flex-wrap">
-            @if (session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
             <div class="py-1 pr-2 w-1/2">
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                 <input type="text" name="name" wire:model="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
@@ -61,7 +61,14 @@
             </div>
             <div class="flex flex-row w-1/2">
                 <input type="text" name="city" wire:model="city" id="city" placeholder="City" class="w-4/5 m-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                <x-country-list/>
+                <select name="country" id="" wire:model="country" class="m-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected>Country</option>
+                    <option value="USA">USA</option>
+                    <option value="FRANCE">FRANCE</option>
+                    <option value="ISRAEL">ISRAEL</option>
+                    <option value="BULGARIA">BULGARIA</option>
+                    <option value="KOREA">KOREA</option>
+                </select>
             </div>
             
             <div class="w-full">

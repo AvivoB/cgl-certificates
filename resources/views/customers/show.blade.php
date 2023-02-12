@@ -30,9 +30,9 @@
                                 <th scope="col" class="px-6 py-3">
                                     Created at
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                {{-- <th scope="col" class="px-6 py-3">
                                     With QR CODE
-                                </th>
+                                </th> --}}
                                 <th scope="col" class="px-6 py-3">
                                     Action
                                 </th>
@@ -45,15 +45,15 @@
                                     #000{{ $certificate->id }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    01-02-2023
+                                    {{ Carbon\Carbon::parse($certificate->created_at)->format('d-m-Y') }}
                                 </td>
-                                <td class="px-6 py-4">
+                                {{-- <td class="px-6 py-4">
                                     @if($certificate->qrcode === 1)
                                     <span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Yes</span>
                                     @else
                                     <span class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">No</span>
                                     @endif
-                                </td>
+                                </td> --}}
                                 <td class="px-6 py-4">
                                     <button id="option-customer-{{ $certificate->id }}" data-dropdown-toggle="dropdown-customer-{{ $certificate->id }}" class="text-white bg-indigo-500 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                         Options 

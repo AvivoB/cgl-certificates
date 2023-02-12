@@ -8,7 +8,7 @@
                 <input wire:model.debounce.500ms="search" type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 outline-0 focus:ring-offset-0" placeholder="Search customer">
             </div>
             <div>
-                <x-country-list/>
+                {{-- <x-country-list/> --}}
             </div>
         </div>
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-y-hidden">
@@ -41,7 +41,7 @@
                         <a href="{{ route('customers.show', $customer->id) }}">{{ $customer->name }}</a>
                     </td>
                     <td class="px-6 py-4">
-                        01-02-2023
+                        {{ Carbon\Carbon::parse($customer->created_at)->format('d-m-Y') }}
                     </td>
                     <td class="px-6 py-4">
                         <span class="bg-slate-700 text-white text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ $customer->certificates->count() }}</span>
@@ -57,11 +57,15 @@
                                 <li>
                                     <a href="{{ route('customers.edit', $customer->id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Re-send certificate</a>
-                                </li>
+                                </li> --}}
                                 <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
+                                    <form action="{{ route('customers.destroy', $customer->id)}}" method="post" class="w-full">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" href="{{ route('customers.destroy', $customer->id) }}" class="block px-4 py-2 text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white w-full text-left">Delete</button>
+                                      </form>
                                 </li>
                             </ul>
                         </div>
@@ -70,5 +74,8 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="py-3">
+            {{ $customers->links() }}
+        </div>
     </div>
 </div>
