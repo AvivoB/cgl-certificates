@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="w-1/12 shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('certificates.index') }}">
                         <div class="">
                             <x-logo-app/>
                         </div>
