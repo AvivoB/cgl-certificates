@@ -70,7 +70,7 @@
                     </tr>
                     <tr width="100%">
                         <td class="info" align="left">CGL Num</td>
-                        <td class="data" align="right">CGL-C-{{ $certificate->id }}</td>
+                        <td class="data" align="right">CGL-C-00{{ $certificate->id }}</td>
                     </tr>
                     <tr width="100%">
                         <td class="info" align="left">Jwl Weight</td>
