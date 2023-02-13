@@ -66,7 +66,6 @@
                 <table style="width: 100%" class="info">
                     <tr width="100%">
                         <td class="info" align="left">Date</td>
-                        
                         <td class="data" align="right" >{{  Carbon\Carbon::parse($certificate->created_at)->format('D d M Y') }}</td>
                     </tr>
                     <tr width="100%">
@@ -85,11 +84,12 @@
                         <td class="info" align="left">Gems Weight</td>
                         <td class="data" align="right">{{ $dataCertificate->gemstone_weight }} Ct.</td>
                     </tr>
-                    <tr width="100%" style="padding-top: 8px;">
-                        <td style="font-size: 7px; width: 100%" align="left"></td>
+                </table>
+                <table style="width: 100%; padding: 0; font-size: 7px; font-weight: bold;">
+                    <tr width="100%" style="">
+                        <td>{{ $dataCertificate->text_certificate }}</td>
                     </tr>
                 </table>
-                {{-- <span class="small-text">{{ $dataCertificate->text_certificate }}</span> --}}
             </td>
             <td style="width: 30%; text-align: right;">
                 <img src="data:image/png;base64, {!! base64_encode(QrCode::size(75)->generate(route('certificatepublic.show', $certificate->id))) !!} ">
