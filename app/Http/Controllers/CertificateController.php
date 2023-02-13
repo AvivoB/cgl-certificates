@@ -52,6 +52,7 @@ class CertificateController extends Controller
 
         // Creation du certificat
         $certificate = Certificate::create([
+            'object_type' => '',
             'customer_id' => $request->customer_id,
             'images' => json_encode($images),
             'data' => json_encode($request->except(['_token', 'images', 'customer_id', 'send-by-email', 'qrcode'])),
