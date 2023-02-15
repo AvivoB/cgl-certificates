@@ -72,18 +72,24 @@
                         <td class="info" align="left">CGL Num</td>
                         <td class="data" align="right">CGL-C-00{{ $certificate->id }}</td>
                     </tr>
+                    @if ($dataCertificate->jewel_weight_title != '')
                     <tr width="100%">
-                        <td class="info" align="left">Jwl Weight</td>
+                        <td class="info" align="left">{{ $dataCertificate->jewel_weight_title }} Weight</td>
                         <td class="data" align="right">{{ $dataCertificate->jewel_weight }} Grs</td>
                     </tr>
+                    @endif
+                    @if ($dataCertificate->diamond_weight_title != '')
                     <tr width="100%">
-                        <td class="info" align="left">Dmds Weight</td>
+                        <td class="info" align="left">{{ $dataCertificate->diamond_weight_title }} Weight</td>
                         <td class="data" align="right">{{ $dataCertificate->diamond_weight }} Ct.</td>
                     </tr>
+                    @endif
+                    @if ($dataCertificate->gemstone_weight_title != '')
                     <tr width="100%">
-                        <td class="info" align="left">Gems Weight</td>
+                        <td class="info" align="left">{{ $dataCertificate->gemstone_weight_title }} Weight</td>
                         <td class="data" align="right">{{ $dataCertificate->gemstone_weight }} Ct.</td>
                     </tr>
+                    @endif
                 </table>
                 <table style="width: 100%; padding: 0; font-size: 7px; font-weight: bold;">
                     <tr width="100%" style="">
@@ -91,13 +97,13 @@
                     </tr>
                 </table>
             </td>
-            <td style="width: 30%; text-align: right;">
+            <td style="width: 30%; text-align: left;">
                 <img src="data:image/png;base64, {!! base64_encode(QrCode::size(75)->generate(route('certificatepublic.show', $certificate->id))) !!} ">
             </td>
         </tr>
         <tr>
             <td style="width: 37.5%; background-color: #f0f0f0">
-                <p>Center Diamonds</p>
+                <p>Center {{ $dataCertificate->center }}</p>
                 <table style="width: 100%" class="info">
                     <tr width="100%">
                         <td class="info" align="left">Cut and Shape</td>
@@ -136,7 +142,8 @@
                     </tr>
                 </table>
                 
-                <p>Other Diamonds</p>
+                @if ($dataCertificate->other_1 != '')
+                <p>Other {{ $dataCertificate->other_1 }}</p>
                 <table style="width: 100%" class="info">
                     <tr width="100%">
                         <td class="info" align="left">Cut and Shape</td>
@@ -169,9 +176,11 @@
                         <td class="data" align="right" >{{ $dataCertificate->other_1_Clarity }}</td>
                     </tr>
                 </table>
+                @endif
             </td>
             <td style="width: 37.5%; background-color: #f0f0f0">
-                <p>Other Diamonds</p>
+                @if ($dataCertificate->other_2 != '')
+                <p>Other {{ $dataCertificate->other_2 }}</p>
                 <table style="width: 100%" class="info">
                     <tr width="100%">
                         <td class="info" align="left">Cut and Shape</td>
@@ -204,7 +213,9 @@
                         <td class="data" align="right" >{{ $dataCertificate->other_2_Clarity }}</td>
                     </tr>
                 </table>
-                <p>Other Diamonds</p>
+                @endif
+                @if ($dataCertificate->other_3 != '')
+                <p>Other {{ $dataCertificate->other_3 }}</p>
                 <table style="width: 100%" class="info">
                     <tr width="100%">
                         <td class="info" align="left">Cut and Shape</td>
@@ -237,10 +248,13 @@
                         <td class="data" align="right" >{{ $dataCertificate->other_3_Clarity }}</td>
                     </tr>
                 </table>
+                @endif
             </td>
             <td style="widht: 25%; vertical-align: middle; backgroud-color: #ffffff">
                 <img src="{{ public_path('uploaded_images/'. $imageCertificate[0]) }}" class="logo" alt="">
-                <span class="small-text">* Center diamond weight was calculated by formula</span>
+                @if ($dataCertificate->est_price != '')
+                <span class="small-text">{{ $dataCertificate->est_price }}</span>
+                @endif
             </td>
         </tr>
         </tbody>
