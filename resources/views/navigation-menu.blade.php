@@ -18,6 +18,11 @@
                         {{ __('Certificates') }}
                     </x-jet-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('labels.index') }}" :active="request()->routeIs('labels.*')">
+                        {{ __('Labels') }}
+                    </x-jet-nav-link>
+                </div>
                 {{-- @dd(request()->has()) --}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('customers.*')">

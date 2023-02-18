@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\LabelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,10 +31,14 @@ Route::middleware([
 
 
     // Certificates
-    Route::get('certificates/{id}/label', [CertificateController::class, 'showLabel'])->name('certificates.showLabel');
+    // Route::get('certificates/{id}/label', [CertificateController::class, 'showLabel'])->name('certificates.showLabel');
     Route::get('certificates/{id}/certificate-card', [CertificateController::class, 'showCertficate'])->name('certificates.showCertficate');
     Route::get('delete/{id}/certificate-card', [CertificateController::class, 'destroy'])->name('certificates.destroy');
     Route::resource('certificates', CertificateController::class);
+
+    // Labels
+    Route::resource('labels', LabelController::class);
+    Route::get('labels/{id}/label', [LabelController::class, 'showLabel'])->name('labels.showLabel');
     
     // Customers
     Route::resource('customers', CustomerController::class);
