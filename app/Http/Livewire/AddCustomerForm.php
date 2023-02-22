@@ -56,20 +56,28 @@ class AddCustomerForm extends Component
         $this->displayCreateCustomer = false;
     }
 
-    protected $rules = [
-        'name' => 'required|min:6',
-        'email' => 'required|email',
-        'phone' => '',
-        'address' => '',
-        'city' => '',
-        'country' => 'required',
-    ];
+    // protected $rules = [
+    //     'name' => 'required|min:6',
+    //     'email' => 'required|email',
+    //     'phone' => 'required',
+    //     'address' => 'required',
+    //     'city' => 'required',
+    //     'country' => 'required',
+    // ];
 
     public function save ()
     {
-        $validatedData = $this->validate();
+        // $validatedData = $this->validate();
 
-        $user_created = Customer::create($validatedData);
+        // $user_created = Customer::create($validatedData);
+        $user_created = Customer::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'address' => $this->address,
+            'city' => $this->city,
+            'country' => $this->country = ($this->country != '') ? $this->country : 'USA',
+        ]);
 
         $this->userSelected = $user_created;
         $this->displayCreateCustomer = false;
