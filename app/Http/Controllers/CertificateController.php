@@ -112,8 +112,9 @@ class CertificateController extends Controller
         $dataCertificate = json_decode($certificate->data);
         $imageCertificate = json_decode($certificate->images);
 
-        // inch (convert millimeter to inch)
-        $print_size = array(0,0,210,400);
+        // pt (convert millimeter to pt)
+        // Use this converter : https://www.unitconverters.net/length/millimeter-to-point.htm
+        $print_size = array(0,0, 155.90551181, 240.94488189);
         // view()->share('certificate', $certificate);
         $pdf = PDF::loadView('certificate.pdf.certificate', compact('certificate', 'dataCertificate', 'imageCertificate'))->setPaper($print_size, 'landscape');
         // download PDF file with download method
