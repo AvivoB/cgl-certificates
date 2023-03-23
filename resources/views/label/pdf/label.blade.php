@@ -62,6 +62,7 @@
             font-weight: 600;
             line-height: 0.8em;
             padding-top: 1em;
+            padding-right: 1.5em;
         }
 
     </style>
