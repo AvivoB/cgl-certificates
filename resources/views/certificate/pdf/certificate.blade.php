@@ -268,7 +268,7 @@
     <table style="width: 100%;">
         <tbody>
         <tr style="">
-            <td style="width: 0%;"><img src="{{ public_path('images/main_logo.png') }}" class="logo" alt=""></td>
+            <td style="width: 0%;"><img style="width: 0%;" src="{{ public_path('images/main_logo.png') }}" class="logo" alt=""></td>
             <td style="width: 50%;" align="center">
                 <table style="width: 100%" class="info">
                     <tr width="100%">
