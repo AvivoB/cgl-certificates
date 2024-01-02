@@ -129,7 +129,11 @@ class CertificateController extends Controller
      */
     public function edit($id)
     {
-        return view('certificate.edit');
+        $certificate = Certificate::find($id);
+        $dataCertificate = json_decode($certificate->data);
+        $imageCertificate = json_decode($certificate->images);
+
+        return view('certificate.edit', compact('certificate', 'dataCertificate', 'imageCertificate'));
     }
 
     /**
@@ -141,7 +145,19 @@ class CertificateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $certificat = Certificate::find($id);
+ 
+        $certificat->data = json_encode($request->except(['_token', 'images', 'customer_id', 'send-by-email', 'qrcode']));
+
+        if($request->has('images')) {
+            $images = $this->uploadFiles($request->images);
+            $certificat->images = json_encode($images);
+        }
+        
+        $certificat->save();
+
+        return redirect()->route('certificates.index');
     }
 
     /**

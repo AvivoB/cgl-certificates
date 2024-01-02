@@ -21,7 +21,7 @@ class CertificatesTableList extends Component
         
         return view('livewire.certificates-table-list', ['certificates' => Certificate::where(function ($query) use ($search) {
                 $query->where('id', 'like', '%' . $search . '%');
-            })->paginate(10)
+            })->orderBy('id', 'DESC')->paginate(10)
         ]);
     }
 

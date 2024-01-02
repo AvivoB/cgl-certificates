@@ -94,7 +94,10 @@ class LabelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $label = Label::find($id);
+        $labelData = json_decode($label->data);
+
+        return view('label.edit', compact('label', 'labelData'));
     }
 
     /**
@@ -106,7 +109,11 @@ class LabelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $label = Label::find($id);
+        $label->data = json_encode($request->except(['_token', 'customer_id']));
+        $label->save();
+
+        return redirect()->route('labels.index');
     }
 
     /**

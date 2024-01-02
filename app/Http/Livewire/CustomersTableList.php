@@ -26,7 +26,7 @@ class CustomersTableList extends Component
                                                                 ->orWhere('city', 'like', '%' . $search . '%')
                                                                 ->orWhere('country', 'like', '%' . $search . '%')
                                                                 ->orWhere('id', 'like', '%' . $search . '%');
-                                                        })->paginate(10)
+                                                        })->orderBy('id', 'DESC')->paginate(10)
                                                     ]);
     }
 

@@ -16,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/auth', function () {
     return view('auth.login');
+});
+Route::get('/', function () {
+    return view('verify-label');
 });
 
 Route::middleware([
@@ -35,10 +38,11 @@ Route::middleware([
     Route::get('certificates/{id}/certificate-card', [CertificateController::class, 'showCertficate'])->name('certificates.showCertficate');
     Route::get('delete/{id}/certificate-card', [CertificateController::class, 'destroy'])->name('certificates.destroy');
     Route::resource('certificates', CertificateController::class);
+    Route::post('certificates/{id}/update', [CertificateController::class, 'update'])->name('certificates.update');
 
     // Labels
     Route::resource('labels', LabelController::class);
-    Route::get('labels/{id}/label', [LabelController::class, 'showLabel'])->name('labels.showLabel');
+    Route::post('labels/{id}/update', [LabelController::class, 'update'])->name('labels.update');
     
     // Customers
     Route::resource('customers', CustomerController::class);
@@ -46,4 +50,5 @@ Route::middleware([
 
 
 // Route public pour acceder au certificats sans etre connecté et via le QR Code
+Route::get('labels/{id}/label', [LabelController::class, 'showLabel'])->name('labels.showLabel');
 Route::get('certificate/CGL-C-000{id}', [CertificateController::class, 'showCertficate'])->name('certificatepublic.show');

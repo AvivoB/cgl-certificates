@@ -20,7 +20,7 @@ class LabelTableList extends Component
        
        return view('livewire.label-table-list', ['labels' => Label::where(function ($query) use ($search) {
                $query->where('label_num', 'like', '%' . $search . '%');
-           })->paginate(10)
+           })->orderBy('id', 'DESC')->paginate(10)
        ]);
    }
 
